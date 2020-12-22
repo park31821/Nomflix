@@ -12,7 +12,7 @@ import Seasons from "../../Components/Seasons";
 const imdbIcon ="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png";
 
 const isMovieLink = (id) =>(
-  window.location.pathname.includes(`/movie/${id}`)
+  window.location.href.includes(`#/movie/${id}`)
 )
 
 
@@ -172,24 +172,24 @@ const DetailPresenter = ({ result, loading, error }) =>
             <Overview>{result.overview}</Overview>
             <TabContainer>
             <List>
-              <Tab active={window.location.pathname === `/movie/${result.id}/trailers` || window.location.pathname === `/show/${result.id}/trailers`}>
+              <Tab active={window.location.href.includes(`#/movie/${result.id}/trailers`) || window.location.href.includes(`/show/${result.id}/trailers`)}>
                 <Link to={
                   isMovieLink(result.id)  ? `/movie/${result.id}/trailers` : `/show/${result.id}/trailers`
                   }>Trailers</Link>
               </Tab>
-              <Tab active={window.location.pathname === `/movie/${result.id}/productions` || window.location.pathname === `/show/${result.id}/productions`}>
+              <Tab active={window.location.href.includes(`/movie/${result.id}/productions`)  || window.location.href.includes(`/show/${result.id}/productions`)}>
                 <Link to={
                   isMovieLink(result.id) ? `/movie/${result.id}/productions` : `/show/${result.id}/productions`
                 }>Productions</Link>
               </Tab>
               {isMovieLink(result.id)?(
                 (result.belongs_to_collection?( 
-                <Tab active={window.location.pathname === `/movie/${result.id}/collections`}>
+                <Tab active={window.location.href.includes(`/movie/${result.id}/collections`)}>
                   <Link to={`/movie/${result.id}/collections`}>Collections</Link>
                 </Tab>
                 ):null)
               ):(
-                <Tab active={window.location.pathname === `/show/${result.id}/seasons`}>
+                <Tab active={window.location.href.includes(`/show/${result.id}/seasons`)}>
                   <Link to={`/show/${result.id}/seasons`}>Seasons</Link>
                 </Tab>
               )}
