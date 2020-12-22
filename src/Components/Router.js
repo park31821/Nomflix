@@ -1,5 +1,5 @@
 import React from "react";
-import {HashRouter as Router,Route, Switch,Redirect} from "react-router-dom";
+import {BrowserRouter as Router,Route, Switch,Redirect} from "react-router-dom";
 import Header from "./Header";
 import Home from "../Routes/Home";
 import Detail from "../Routes/Detail";
@@ -8,7 +8,7 @@ import Search from "../Routes/Search";
 
 
 
-export default()=>(
+const BrowserRouter=()=>(
     <Router>
         <>
             <Header />
@@ -24,3 +24,5 @@ export default()=>(
         </>
     </Router>
 );
+
+export default BrowserRouter

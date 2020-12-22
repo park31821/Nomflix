@@ -2,7 +2,7 @@ import React from "react";
 import { movieApi,tvApi } from "../../api";
 import DetailPresenter from "./DetailPresenter";
 
-export default class extends React.Component{
+class DetailContainer extends React.Component{
     constructor(props){
         super(props);
         const{
@@ -58,3 +58,5 @@ export default class extends React.Component{
         />;
     }
 }
+
+export default DetailContainer
